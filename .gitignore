@@ -1,0 +1,11 @@
+# compilation artifacts
+__pycache__/
+
+# build artifacts
+dist/
+
+# temporary files
+tmp/
+
+# test artifacts
+.pytest_cache/

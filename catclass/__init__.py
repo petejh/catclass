@@ -1,0 +1,1 @@
+from .catclass import CatClassifier
