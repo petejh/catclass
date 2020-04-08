@@ -9,6 +9,7 @@ This project uses [Semantic Versioning][sv].
 - Add routines to load, normalize, and partition data from an H5 file into
   training and test sets.
 - Parameterize specs for the data file.
+- Add docstrings for the load, normalize, and partition methods.
 
 ### Changed
 
