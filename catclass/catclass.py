@@ -8,7 +8,13 @@ class CatClassifier:
     def run():
         classifier = CatClassifier()
 
-        data_x, data_y, data_class = classifier.load_data()
+        data_spec = {
+            'datafile': 'data/data.h5',
+            'x_name': 'data_x',
+            'y_name': 'data_y',
+            'class_name': 'data_class'
+        }
+        data_x, data_y, data_class = classifier.load_data(data_spec)
 
         norm_x, norm_y = classifier.normalize_data(data_x, data_y)
         train_x, train_y, test_x, test_y = classifier.partition_data(norm_x, norm_y)
@@ -20,14 +26,14 @@ class CatClassifier:
 
         print("I am not a cat!")
 
-    def load_data(self):
+    def load_data(self, data_spec):
         path = os.path.dirname(os.path.abspath((__file__)))
-        datapath = os.path.join(path, 'data/data.h5')
+        datapath = os.path.join(path, data_spec['datafile'])
 
         with h5.File(datapath, 'r') as datafile:
-            data_x = datafile['data_x'][:]
-            data_y = datafile['data_y'][:]
-            data_class = datafile['data_class'][:]
+            data_x = datafile[data_spec['x_name']][:]
+            data_y = datafile[data_spec['y_name']][:]
+            data_class = datafile[data_spec['class_name']][:]
 
         return (data_x, data_y, data_class)
 
