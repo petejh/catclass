@@ -10,6 +10,8 @@ This project uses [Semantic Versioning][sv].
   training and test sets.
 - Parameterize specs for the data file.
 - Add docstrings for the load, normalize, and partition methods.
+- Train the model, displaying cost and final accuracy for the training set.
+- Measure the accuracy of the trained model against the test set.
 
 ### Changed
 

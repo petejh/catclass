@@ -1,6 +1,11 @@
 import os
+from time import time
+from datetime import timedelta
 
 import h5py as h5
+import numpy as np
+
+from deepen import model
 
 class CatClassifier:
 
@@ -24,7 +29,28 @@ class CatClassifier:
         assert(test_x.shape == (12288, 50))
         assert(test_y.shape == (1, 50))
 
-        print("I am not a cat!")
+        np.random.seed(1)
+        layer_dims = [norm_x.shape[0], 20, 7, 5, 1]
+        iterations = 2500
+
+        print("Training model...", end='')
+        start = time()
+        params, costs = model.learn(train_x, train_y, layer_dims, iterations=iterations)
+        end = time()
+        print("done.")
+        print("Time to train: %s" %  str(timedelta(seconds=(end - start))))
+
+        for i in range(iterations):
+            if i % 100 == 0:
+                print("Cost at iteration %i: %f" % (i, costs[i]))
+
+        train_pred = model.predict(train_x, params)
+        train_accuracy = np.sum(train_pred == train_y) / train_y.shape[1]
+        print("Training accuracy: %3.3f" % train_accuracy)
+
+        test_pred = model.predict(test_x, params)
+        test_accuracy = np.sum(test_pred == test_y) / test_y.shape[1]
+        print("Test accuracy: %3.3f" % test_accuracy)
 
     def load_data(self, data_spec):
         """Load datasets from a specified H5-format file.
