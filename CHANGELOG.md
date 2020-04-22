@@ -12,8 +12,12 @@ This project uses [Semantic Versioning][sv].
 - Add docstrings for the load, normalize, and partition methods.
 - Train the model, displaying cost and final accuracy for the training set.
 - Measure the accuracy of the trained model against the test set.
+- Add the CLI module for running the classifier from the command line.
+- Add `train()` for training the CatClassifier.
+- Add `test()` for testing and making predictions with the trained model.
 
 ### Changed
+- Move CatClassifier.run() to CLI.run().
 
 ## [0.0.0][0.0.0] — 2020-04-05
 

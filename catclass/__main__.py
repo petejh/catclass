@@ -1,4 +1,4 @@
-from catclass import CatClassifier
+from catclass.cli import CLI
 
 if __name__ == '__main__':
-    CatClassifier.run()
+    CLI.run()
