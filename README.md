@@ -5,6 +5,12 @@ cats.
 ## Installation
 
 ## Usage
+```(bash)
+~/../catclass$ python -m catclass
+```
+On my laptop (Intel i7 CPU @ 2.20GHz × 8; 16GB RAM), it takes about 35s to train
+(209 examples) and test (50 examples) the model through the sample data set, with
+training accuracy 98.6% and test accuracy 80.0% using the default parameters.
 
 ## Contributing
 Catclass provides a safe, welcoming space for collaboration. Everyone

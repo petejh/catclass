@@ -3,17 +3,28 @@ import os
 import h5py as h5
 import numpy as np
 
-from deepen import model
+from deepen.model import Model
 
 class CatClassifier:
 
-    def train(self, train_x, train_y, layer_dims, iterations):
-        params, costs = model.learn(train_x, train_y, layer_dims, iterations=iterations)
+    def __init__(self):
+        self.model = Model()
+
+    @property
+    def layer_dims(self):
+        return self.model.layer_dims
+
+    @layer_dims.setter
+    def layer_dims(self, layer_dims):
+        self.model.layer_dims = layer_dims
+
+    def train(self, train_x, train_y, iterations):
+        params, costs = self.model.learn(train_x, train_y, iterations=iterations)
 
         return (params, costs)
 
-    def test(self, test_x, params):
-        test_pred = model.predict(test_x, params)
+    def test(self, test_x):
+        test_pred = self.model.predict(test_x)
 
         return test_pred
 
