@@ -3,6 +3,12 @@ An image classifier employing a deep neural network to identify pictures of
 cats.
 
 ## Installation
+[Clone the repo][orig] to your local machine. You will also need a copy of the
+[Deepen][deep] library, which is not yet released to PyPI.
+```(bash)
+~/../catclass$ pip install ~/path/to/deepen
+~/../catclass$ pip install -r requirements.txt
+```
 
 ## Usage
 ```(bash)
@@ -31,6 +37,7 @@ This project is available as open source under the terms of the [MIT License][mi
 _This file is composed with [GitHub Flavored Markdown][gfm]._
 
 [coc]:  https://github.com/petejh/catclass/blob/master/CODE_OF_CONDUCT.md
+[deep]: https://github.com/petejh/deepen
 [fork]: https://help.github.co://help.github.com/en/github/getting-started-with-github/fork-a-repo
 [gfm]:  https://github.github.com/gfm/
 [orig]: https://github.com/petejh/catclass
